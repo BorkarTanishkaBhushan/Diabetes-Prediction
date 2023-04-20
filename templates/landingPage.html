@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Diabetes Prediction</title>
+  <link href="{{ url_for('static', filename='css/landingPage.css')}}" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+	<!--==================== HEADER ====================-->
+
+        <!--==================== MAIN ====================-->
+        <main class="main">
+
+           
+
+            <!--==================== HOME ====================-->
+            <section class="home">
+                <div class="home__container container">
+                    <div class="home__data">
+                        <!-- <span class="home__subtitle">Nidan</span> -->
+                        <h1 class="home__title">Diabetes Prediction</h1>
+                        <p class="home__description">
+                            Helps you <br> predict diabetes
+                        </p>
+                        <a href="{{url_for('get_form')}}" class="home__button">Diagnose</a>
+                    </div>
+                    <div class="home__img">
+                        <img src="static/assets/diabetes-removebg-preview (1).png" alt="">
+                        <div class="home__shadow"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+	
+  <script src="{{ url_for('static', filename='script/landingPage.js')}}" type="text/javascript"></script>
+</body>
+
+</html>

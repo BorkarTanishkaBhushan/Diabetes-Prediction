@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Diabetes Prediction</title>
+  <link href="{{ url_for('static', filename='css/form.css')}}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <!-- multistep form -->
+  <form action="/result" method='post' class="form">
+    <h1 class="text-center">Information Form</h1>
+    <!-- Progress bar -->
+    <div class="progressbar">
+      <div class="progress" id="progress"></div>
+
+      <div class="progress-step progress-step-active" data-title="Personal"></div>
+      <div class="progress-step" data-title="Health"></div>
+      <div class="progress-step" data-title="Eating and drinking habits"></div>
+
+    </div>
+
+    <!-- Steps -->
+    <div class="form-step form-step-active">
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required="required" />
+      </div>
+
+      <div class="input-group">
+        <label for="gender">Gender</label>
+        <select class="custom-select" name="gender" id="gender" required="required">
+          <option value="" hidden>Select gender</option>
+          <option value="0">Female</option>
+          <option value="1">Male</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="age">Age</label>
+        <select class="custom-select" name="Age" id="age" required="required">
+          <option value="" hidden>Select age</option>
+          <option value="1">18-24</option>
+          <option value="2">25-29</option>
+          <option value="3">30-34</option>
+          <option value="4">35-39</option>
+          <option value="5">40-44</option>
+          <option value="6">45-49</option>
+          <option value="7">50-54</option>
+          <option value="8">55-59</option>
+          <option value="9">60-64</option>
+          <option value="10">65-69</option>
+          <option value="11">70-74</option>
+          <option value="12">75-79</option>
+          <option value="13">80 or older</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="weight">Height in meters</label>
+        <input type="text" name="height" id="height" required="required"/>
+      </div>
+
+      <div class="input-group">
+        <label for="weight">Weight in kg</label>
+        <input type="text" name="weight" id="weight" required="required" />
+      </div>
+
+      <div class="">
+        <a href="#" class="btn btn-next width-50 ml-auto" id="check">Next</a>
+        <!--<button class="btn btn-next width-50 ml-auto">Next</button>-->
+
+      </div>
+    </div>
+
+    <div class="form-step">
+      <div class="input-group">
+        <label for="highBP">Blood Pressure Value</label>
+		  <select class="custom-select" name="highBP" id="highBP" required="required">
+          <option value="" hidden>Select</option>
+		  <option value="0">Below 90/60mmHg</option>
+          <option value="0">Between 90/60mmHg and 140/90mmHg</option>
+          <option value="1">140/90mmHg or higher</option>
+        </select>
+      </div>
+<div class="input-group">
+  <label for="highChol">Cholestrol Value</label>
+ <select class="custom-select" name="highChol" id="highChol" required="required">
+    <option value="" hidden>Select</option>
+<option value="0">Normal: Less than 200 mg/dL.</option>
+    <option value="0">Borderline high: 200 to 239 mg/dL</option>
+    <option value="1">High: At or above 240 mg/dL</option>
+  </select>
+      </div>
+      <div class="input-group">
+        <label for="smoker">Have you smoked at least 100 cigarettes in your entire life? [Note: 5 packs = 100
+          cigarettes]</label>
+        <select class="custom-select" name="smoker" id="smoker" required="required">
+          <option value="" hidden>Select yes or no</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="stroke">Did you ever suffer from a stroke?</label>
+        <select class="custom-select" name="stroke" id="stroke" required="required">
+          <option value="" hidden>Select yes or no</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="HeartDiseaseorAttack">Do you have any heart-related or heart-attack history?</label>
+        <select class="custom-select" name="HeartDiseaseorAttack" id="HeartDiseaseorAttack" required="required">
+          <option value="" hidden>Select yes or no</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="PhysActivity">Have you done any physical activity aside from your job in the last 30 days?</label>
+        <select class="custom-select" name="PhysActivity" id="PhysActivity" required="required">
+          <option value="" hidden>Select</option>
+          <option value="1">Everyday</option>
+          <option value="1">Often</option>
+          <option value="0">Rarely</option>
+          <option value="0">No</option>
+        </select>
+      </div><div class="input-group">
+        <label for="phyHealth">For how many days during the past 30 days were you injured or physically ill?</label>
+        <input type="text" name="phyHealth" id="phyHealth" required="required"/>
+      </div>
+
+      <div class="input-group">
+        <label for="Diffwalk">Do you have serious difficulty walking or climbing stairs? </label>
+        <select class="custom-select" name="Diffwalk" id="Diffwalk" required="required">
+          <option value="" hidden>Select</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="genHealth">How would you describe your general health, in your opinion?</label>
+        <select class="custom-select" name="genHealth" id="genHealth" required="required">
+          <option value="" hidden>Select age</option>
+          <option value="1">Excellent</option>
+          <option value="2">Very Good</option>
+          <option value="3">Good</option>
+          <option value="4">Fair</option>
+          <option value="5">Poor</option>
+
+        </select>
+      </div>
+
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev">Previous</a>
+        <a href="#" class="btn btn-next">Next</a>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <div class="input-group">
+        <label for="Veggies">Do you consume atleast a vegetable everyday?</label>
+        <select class="custom-select" name="Veggies" id="Veggies" required="required">
+          <option value="" hidden>Select</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="Fruits">Do you consume atleast a fruit everyday?</label>
+        <select class="custom-select" name="Fruits" id="Fruits" required="required">
+          <option value="" hidden>Select</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+
+        <div class="input-group">
+          <label for="HeavyAlcoholConsumption">Are you a heavy drinker? (adult men having more than 14 drinks per week
+            and adult women having more than 7 drinks per week)</label>
+          <select class="custom-select" name="HeavyAlcoholConsumption" id="HeavyAlcoholConsumption" required="required">
+            <option value="" hidden>Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="{{url_for('result')}}">
+            <input type="submit" value="Submit" class="btn width-50 ml-auto" id="submit"/>
+          </a>
+        </div>
+      </div>
+
+
+  </form>
+  <script src="{{ url_for('static', filename='script/form.js')}}" type="text/javascript"></script>
+
+
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
+</body>
+
+</html>
